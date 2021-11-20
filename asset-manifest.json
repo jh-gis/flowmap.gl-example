@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/flowmap.gl-example/static/css/main.9667f384.chunk.css",
+    "main.js": "/flowmap.gl-example/static/js/main.824b38b4.chunk.js",
+    "main.js.map": "/flowmap.gl-example/static/js/main.824b38b4.chunk.js.map",
+    "runtime-main.js": "/flowmap.gl-example/static/js/runtime-main.583d3ff6.js",
+    "runtime-main.js.map": "/flowmap.gl-example/static/js/runtime-main.583d3ff6.js.map",
+    "static/js/2.c41137e5.chunk.js": "/flowmap.gl-example/static/js/2.c41137e5.chunk.js",
+    "static/js/2.c41137e5.chunk.js.map": "/flowmap.gl-example/static/js/2.c41137e5.chunk.js.map",
+    "index.html": "/flowmap.gl-example/index.html",
+    "precache-manifest.70e5644c9d2eadaba6dbb37ebc8bf682.js": "/flowmap.gl-example/precache-manifest.70e5644c9d2eadaba6dbb37ebc8bf682.js",
+    "service-worker.js": "/flowmap.gl-example/service-worker.js",
+    "static/css/main.9667f384.chunk.css.map": "/flowmap.gl-example/static/css/main.9667f384.chunk.css.map",
+    "static/js/2.c41137e5.chunk.js.LICENSE.txt": "/flowmap.gl-example/static/js/2.c41137e5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.583d3ff6.js",
+    "static/js/2.c41137e5.chunk.js",
+    "static/css/main.9667f384.chunk.css",
+    "static/js/main.824b38b4.chunk.js"
+  ]
+}
