@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { StaticMap } from "react-map-gl";
-import { DeckGL } from "deck.gl";
-import FlowMapLayer from "@flowmap.gl/core";
 import geoViewport from "@mapbox/geo-viewport";
-
+import FlowMap, { LegendBox, LocationTotalsLegend } from "@flowmap.gl/react";
 import "./App.css";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MapboxAccessToken;
@@ -41,6 +38,16 @@ const colors = {
       "#3b738f",
       "#2a5674",
     ],
+    highlighted: [
+      // Teal scheme from https://carto.com/carto-colors/
+      "#d1eeea",
+      "#a8dbd9",
+      "#85c4c9",
+      "#68abb8",
+      "#4f90a6",
+      "#3b738f",
+      "#2a5674",
+    ],
   },
   locationAreas: {
     outline: "rgba(92,112,128,0.5)",
@@ -49,10 +56,33 @@ const colors = {
   },
 };
 
+const DARK_COLORS = {
+  darkMode: true,
+  flows: {
+    scheme: [
+      "rgb(0, 22, 61)",
+      "rgb(0, 27, 62)",
+      "rgb(0, 36, 68)",
+      "rgb(0, 48, 77)",
+      "rgb(3, 65, 91)",
+      "rgb(48, 87, 109)",
+      "rgb(85, 115, 133)",
+      "rgb(129, 149, 162)",
+      "rgb(179, 191, 197)",
+      "rgb(240, 240, 240)",
+    ],
+  },
+  locationAreas: {
+    normal: "#334",
+  },
+  outlineColor: "#000",
+};
+
 export default class App extends Component {
   state = {
     locations: null,
     flows: null,
+    thickness: null,
   };
 
   componentDidMount() {
@@ -62,37 +92,37 @@ export default class App extends Component {
       .then((response) => response.json())
       .then((json) => this.setState({ locations: json }));
 
-    fetch(`${process.env.PUBLIC_URL}/data/CO_origin_flows.json`)
+    fetch(`${process.env.PUBLIC_URL}/data/CO_Origin_flows.json`)
       .then((response) => response.json())
       .then((json) => this.setState({ flows: json }));
   }
 
   render() {
-    const { locations, flows } = this.state;
-    const layers = [];
-    if (locations && flows) {
-      layers.push(
-        new FlowMapLayer({
-          colors,
-          locations,
-          flows,
-          getLocationId: (l) => l.properties.GEOID,
-          getLocationCentroid: (l) => l.properties.Centroid,
-          getFlowOriginId: (f) => f.origin,
-          getFlowDestId: (f) => f.dest,
-          getFlowMagnitude: (f) => f.count2010,
-        })
-      );
-    }
-
+    const { flows, locations } = this.state;
     return (
-      <DeckGL
-        initialViewState={getInitialViewState()}
-        controller={true}
-        layers={layers}
-      >
-        <StaticMap mapboxApiAccessToken={MAPBOX_TOKEN} />
-      </DeckGL>
+      <>
+        <FlowMap
+          flows={flows}
+          locations={locations}
+          animate={true}
+          pickable={true}
+          colors={DARK_COLORS}
+          getLocationId={(l) => l.properties.GEOID}
+          getLocationCentroid={(l) => l.properties.Centroid}
+          getFlowOriginId={(f) => f.origin}
+          getFlowDestId={(f) => f.dest}
+          getFlowMagnitude={(f) => f.count2010}
+          initialViewState={getInitialViewState()}
+          mapboxApiAccessToken={MAPBOX_TOKEN}
+        />
+        <LegendBox
+          bottom={35}
+          left={10}
+          style={{ backgroundColor: "#CCC", color: "#000" }}
+        >
+          <LocationTotalsLegend colors={DARK_COLORS} />
+        </LegendBox>
+      </>
     );
   }
 }
