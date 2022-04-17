@@ -3,7 +3,7 @@ import geoViewport from "@mapbox/geo-viewport";
 import FlowMap, { LegendBox, LocationTotalsLegend } from "@flowmap.gl/react";
 import "./App.css";
 
-const MAPBOX_TOKEN = process.env.REACT_APP_MapboxAccessToken;
+const mapboxAccessToken = process.env.REACT_APP_MapboxAccessToken;
 
 const getInitialViewState = () => {
   const bbox = [-109.06, 36.99, -102.04, 41.0];
@@ -113,7 +113,7 @@ export default class App extends Component {
           getFlowDestId={(f) => f.dest}
           getFlowMagnitude={(f) => f.count2010}
           initialViewState={getInitialViewState()}
-          mapboxApiAccessToken={MAPBOX_TOKEN}
+          mapboxAccessToken={mapboxAccessToken}
         />
         <LegendBox
           bottom={35}
