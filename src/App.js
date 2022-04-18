@@ -82,7 +82,6 @@ export default class App extends Component {
   state = {
     locations: null,
     flows: null,
-    thickness: null,
   };
 
   componentDidMount() {
