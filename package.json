@@ -7,6 +7,7 @@
     "@flowmap.gl/core": "^7.3.4",
     "@flowmap.gl/react": "^7.3.4",
     "@mapbox/geo-viewport": "^0.4.0",
+    "@mapbox/react-geocoder": "^2.5.0",
     "deck.gl": "^8.7.5",
     "flowmap.gl": "^4.0.0",
     "react": "^16.13.1",
