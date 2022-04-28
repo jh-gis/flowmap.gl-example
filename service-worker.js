@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/flowmap.gl-example/precache-manifest.d46d45e1975eb390f8f5b519e3cd7e47.js"
+  "/flowmap.gl-example/precache-manifest.c979e519bd7ebdfa46e1f7f9120dfd32.js"
 );
 
 self.addEventListener('message', (event) => {
