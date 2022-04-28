@@ -8,7 +8,7 @@
     "@flowmap.gl/react": "^7.3.4",
     "@mapbox/geo-viewport": "^0.4.0",
     "@mapbox/react-geocoder": "^2.5.0",
-    "deck.gl": "^8.7.5",
+    "deck.gl": "^8.7.8",
     "flowmap.gl": "^4.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -33,7 +33,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@types/node": "^17.0.25",
+    "@types/node": "^17.0.29",
     "@types/react": "^17.0.44",
     "gh-pages": "^2.2.0",
     "install-peers": "^1.0.3"
